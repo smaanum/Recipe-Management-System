@@ -4,12 +4,14 @@
 #include <iostream>
 #include<string.h>
 #include<stdlib.h>
-
+#include <vector>
+#include "recipe.hpp"
 
 
 
 int main()	{
 	int choice;
+	std::vector<
 	while(1)	{
 		std::cout<<"=== Recipe Book ==="
 		<<"\n1. Add New Recipe"
