@@ -2,16 +2,42 @@
 /* https://code.visualstudio.com/docs/languages/cpp on how to compile/run */
 
 #include <iostream>
-#include<string.h>
 #include<stdlib.h>
-#include <vector>
-#include "recipe.hpp"
+#include "recipe.cpp"
 
+Recipe makeRecipe(){
+	//Get the recipe name
+	std::string title;
+	std::cout << "Recipe Title: ";
+	std::getline(std::cin, title);
+
+	//Get ingredient list
+	std::vector<Ingredient> ingredientList;
+	bool moreIngredients = true;
+	while (moreIngredients) {
+		char opt;
+		std::cout<<"CHOOSE OPTION:"
+		<< "\n1. Add new ingredient"
+		<<"\n2. Exit (No more ingredients)";
+		std::cin>>opt;
+
+		if (opt == '2'){
+			moreIngredients = false;
+		}
+		else {
+			std::
+		}
+
+
+	}
+	
+	//Recipe newRecipe = new Recipe(titl);
+}
 
 
 int main()	{
 	int choice;
-	std::vector<
+	std::vector<Recipe> recipeBook;
 	while(1)	{
 		std::cout<<"=== Recipe Book ==="
 		<<"\n1. Add New Recipe"
@@ -21,9 +47,11 @@ int main()	{
 		<<"\n5. Exit"
 		<<"\n\nEnter your Choice: ";
 		std::cin>>choice;
+
 		
 		switch(choice)	{
 			case 1:
+				recipeBook.push_back(makeRecipe());
                 break;
 				
 			case 2: 

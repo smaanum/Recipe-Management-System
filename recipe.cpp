@@ -1,18 +1,15 @@
-#include <string>
+#include "ingredient.hpp"
 #include <vector>
 class Recipe {
-    struct Ingredient {
-        std::string name;
-        std::string measurementType;
-        float measurement;
-    };
 
 public:
     std::string recipeTitle;
     std::vector<Ingredient> ingredientList;
     std::vector<std::string> directions;
-
-    void setRecipeTitle();
-    void addIngredient();
-    void addStep();
+    Recipe(std::string title, std::vector<Ingredient> ingredients, std::vector<std::string> dirs){
+        this->recipeTitle = title;
+        this->ingredientList = ingredients;
+        this->directions = dirs;
+    }
+    
 };
