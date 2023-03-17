@@ -5,6 +5,6 @@
 struct Ingredient {
     std::string name;
     std::string measurementType;
-    float measurement;
+    std::string measurement;
 };
 #endif
