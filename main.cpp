@@ -59,7 +59,7 @@ Recipe makeRecipe(){
 		}
 	}
 	
-	//Finally add directions
+	//add directions
 	std::vector<std::string> dir;
 	bool moreDir = true;
 	std::cout << "\n* * * * *";
@@ -108,7 +108,7 @@ int main()	{
 
 		
 		switch(choice)	{
-			case 1:
+			case 1: //Make recipe
 				recipeBook.push_back(makeRecipe());
                 break;
 				
@@ -117,7 +117,7 @@ int main()	{
 			case 3: 
 				break;
 			
-			case 4: 
+			case 4: // Delete recipe
 				break;
 			
 			case 5: 
