@@ -7,6 +7,7 @@ public:
     std::vector<Ingredient> ingredientList;
     std::vector<std::string> directions;
     Recipe(std::string title, std::vector<Ingredient> ingredients, std::vector<std::string> dirs);
+    //Recipe(Recipe &r) {}
     ~Recipe() {};
 
 };

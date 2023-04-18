@@ -86,10 +86,28 @@ Recipe makeRecipe(){
 		}
 	}
 
-	std::cout << "\n* * * * *";
+	std::cout << "\n* * * * *\n";
 	Recipe newRecipe(title, ingredientList, dir);
 	return newRecipe;
 	
+}
+
+void printRecipes(const std::vector<Recipe>& book) {
+	if (book.size() < 1) {
+		std::cout << "\nLooks like you don't have any recipes. Add recipes first to browse through them.";
+		std::cout << "\n* * * * *\n";
+		return;
+	}
+	else {
+		std::cout << "\nWhich recipe would you like to view?";
+		int choice = -1;
+		for (int i = 0; i < book.size(); i++) {
+			std::cout << "\n" << i+1 << ". " << book[i].recipeTitle;
+		}
+		//choose recipe to view then print it out
+		std::cout << "\n* * * * *\n";
+		return;
+	}
 }
 
 
@@ -112,7 +130,9 @@ int main()	{
 				recipeBook.push_back(makeRecipe());
                 break;
 				
-			case 2: 
+			case 2: //browse recipes and view
+				printRecipes(recipeBook);
+
 				break;
 			case 3: 
 				break;
