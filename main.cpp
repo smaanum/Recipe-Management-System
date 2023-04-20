@@ -68,6 +68,9 @@ Recipe makeRecipe(){
 		std::cout << "\n(1) Add step"
 		<<"\n(2) Done (no more steps)"
 		<<"\n\nEnter your choice: ";
+		//clear and sync
+		std::cin.clear();
+		std::cin.sync();
 		std::cin >> opt;
 
 		if (opt == '1'){
@@ -83,6 +86,8 @@ Recipe makeRecipe(){
 		}
 		else {
 			std::cout <<"\nInvalid choice";
+			std::cin.clear();
+			std::cin.sync();
 		}
 	}
 
@@ -99,12 +104,50 @@ void printRecipes(const std::vector<Recipe>& book) {
 		return;
 	}
 	else {
-		std::cout << "\nWhich recipe would you like to view?";
-		int choice = -1;
+		int choice;
 		for (int i = 0; i < book.size(); i++) {
 			std::cout << "\n" << i+1 << ". " << book[i].recipeTitle;
 		}
 		//choose recipe to view then print it out
+		std::cout << "\nEnter the number of the recipe you would like to view: ";
+		std::cin.clear();
+		std::cin.sync();
+		std::cin >> choice;
+		while (choice < 1 || choice > book.size()) {
+			std::cout << "\nPlease choose a valid recipe." 
+			<< "\nEnter the number of the recipe you would like to view: ";
+			std::cin.clear();
+			std::cin.sync();
+			std::cin >> choice;
+		}
+		std::cout << "\n" << book[choice-1].recipeTitle;
+		std::string div(book[choice-1].recipeTitle.length(), '-');
+		std::cout << "\n" << div;
+
+		std::cout << "\nINGREDIENTS:";
+		std::vector<Ingredient> ing = book[choice-1].ingredientList;
+		for (int i = 0; i < ing.size(); i++) {
+			std::string res = "";
+			if (ing[i].measurement != "") {
+				res.append(ing[i].measurement);
+				res.append(" ");
+			}
+			if (ing[i].measurementType != "") {
+				res.append(ing[i].measurementType);
+				res.append(" ");
+			}
+			res.append("- ");
+			if (ing[i].name != "") {
+				res.append(ing[i].name);
+			}
+			std::cout << "\n" << res;
+		}
+
+		std::cout << "\n\nDIRECTIONS:";
+		std::vector<std::string> dir = book[choice-1].directions;
+		for (int i = 0; i < dir.size(); i++) {
+			std::cout << "\n" << i+1 << ". " << dir[i];
+		}
 		std::cout << "\n* * * * *\n";
 		return;
 	}
